@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  font-family: Open Sans;
+}
+
+body {
+    /* background-image: url('static/images/bg_2.jpg'); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('static/images/bg_2.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+h2, h3 {
+  letter-spacing: 1px;
+  line-height: 1.6em
+}
+
+p {
+  line-height: 1.2em;
+  margin: 10px 0;
+}
+
+.container {
+  position: relative;
+}
+
+button {
+  width: 100px;
+  padding: 7px 0;
+  margin-top: 10px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #ddd;
+  outline: none;
+  cursor: pointer;
+}
+
+.login-toggle {
+  width: 800px;
+  /* Imp for the screen */
+  height: 400px;
+  padding: 100px 60px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.8);
+  color: #ddd;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.toggle {
+  width: 250px;
+}
+
+.toggle:last-child {
+  text-align: right;
+}
+
+#slider {
+  position: absolute;
+  top: -8%;
+  left: 60px;
+  width: 350px;
+  height: 116%;
+  background: #fefefe;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 1px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 400ms cubic-bezier(.87,-.41,.19,1.44);
+}
+
+#slider.toggled {
+  transform: translateX(330px);
+}
+
+.login-signup {
+  width: 680px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: transform 400ms cubic-bezier(.87,-.41,.19,1.44);
+}
+
+#slider.toggled .login-signup {
+  transform: translateX(-330px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 40px;
+}
+
+form:last-child {
+  padding-left: 0;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  color: #59a07d;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 7px 0;
+  border: none;
+  border-bottom: 1px solid #888;
+  outline: none;
+}
+
+form button {
+  margin-left: auto;
+  background: #59a07d;
+  color: hsl(150,10%,95%)
+}
+
+form div {
+  display: flex;
+  align-items: center;
+}
+
+form a {
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #ccc;
+}
+
+
+.button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+</style>
+
+</head>
+<body>
+
+  <a href="/" class="button">&#8592;</a>
+    <div class="container">
+        <div class="login-toggle">
+          <section class="toggle">
+            <h3>SignUp As User</h3>
+            <p>Sign-Up  in order to join the drives </p>
+            <button class="btn-toggle" type="button">SingUp-User</button>
+          </section>
+          <section class="toggle">
+            <h3>SignUp - Organization</h3>
+            <p>SignUp as organization and create your own drives</p>
+            <button class="btn-toggle" type="button">SignUp</button>
+          </section>
+        </div>
+        <div id="slider">
+          <div class="login-signup">
+            <form id="signup-form" action="sign_user" method="post" >
+              <h2>Sign-Up As User</h2>
+              <input type="text" placeholder="Name" name="name" required>
+              <input type="text" placeholder="Username" name="username" required>
+
+              <input type="email" placeholder="Email" name="email" required>
+              <input type="tel" placeholder="Phone" name="phone" required>
+              <input type="text" placeholder="Address" name="address" required>
+              <input type="text" id="inputField" placeholder="Enter One Of Your Skills" name="skill" required>
+                <div id="suggestions" style="cursor: pointer;"></div>
+
+              <input type="password" placeholder="Password" name="password" required>
+
+              <button type="submit">Sign-Up</button>
+            </form>
+            <form id="login-form" action="/sign_organization" method="post"  enctype="multipart/form-data">
+              <h2>SignUp Organization</h2>
+        <!-- llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll -->
+        <input type="text" placeholder="Name of Organization" name="name">
+        <input type="email" placeholder="Email" name="email">
+        <input type="tel" placeholder="Phone" name="phone">
+        <input type="text" placeholder="Address" name="address">
+<!--     
+        <input type="file" style="box-shadow: 0px 10px 14px -7px #3e7327;
+        background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+        background-color:#77b55a;
+        border-radius:4px;
+        border:1px solid #4b8f29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:13px;
+        font-weight:bold;
+        padding:6px 12px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #5b8a3c;" name="file"> -->
+        <input type="password" placeholder="Password" name="password">
+
+       <div>
+                <button type="submit">Sign-Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+      <script>
+        let btnToggle = Array.from(document.getElementsByClassName('btn-toggle'));
+
+btnToggle.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('slider').classList.toggle('toggled');
+  });
+});
+
+
+const inputField = document.getElementById("inputField");
+const suggestions = document.getElementById("suggestions");
+
+inputField.addEventListener("input", function() {
+  const value = inputField.value;
+  suggestions.innerHTML = "";
+
+  if (!value) {
+    return;
+  }
+
+  const options = [
+    "Teacher",
+    "Counseling",
+    "Doctor",
+    "Densist",
+    "Technology",
+    "Yoga",
+    "Lawyer",
+    "Physiotherapy",
+    "Dietition",
+    "Auditor",
+    "Translator",
+    "Accountant"
+  ];
+
+  options.forEach(function(option) {
+    if (option.toLowerCase().startsWith(value.toLowerCase())) {
+      const suggestion = document.createElement("div");
+      suggestion.innerHTML = option;
+      suggestion.addEventListener("click", function() {
+        inputField.value = option;
+        suggestions.innerHTML = "";
+      });
+      suggestions.appendChild(suggestion);
+    }
+  });
+});
+
+      </script>
+</body>
+</html>
+

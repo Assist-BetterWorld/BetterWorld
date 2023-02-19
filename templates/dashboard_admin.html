@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+        #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+  
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BetterWorld</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Profile</a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link">User-Search</a>
+              </li>
+
+
+
+
+              <li class="nav-item" style="float: right; padding-left: 1000px;">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://source.unsplash.com/2400x700/?nature,water" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/2400x700/?nature,pollution" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/2400x700/?nature,plastic" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+
+
+
+<div class="container">
+    <button type="button" class="btn btn-secondary right-align" style="float: right; margin-top: 25px;" data-toggle="modal" data-target="#myModal">Create Event +</button>
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create Event</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+
+
+
+
+
+
+
+
+
+            <form method="post" action="/dashboard_admin">
+                <div class="mb-3">
+              
+                    
+
+
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+
+
+
+
+                    <label for="exampleInputEmail1" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+
+
+
+
+
+                  <label for="exampleInputEmail1" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="date">
+                  
+
+                  
+
+
+
+
+                  
+                  <label for="exampleInputEmail1" class="form-label">Time</label>
+                  <input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="time">
+
+
+
+
+                  
+                  <label for="exampleInputEmail1" class="form-label">Venue</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="venue">
+
+
+
+                  
+                  <label for="exampleInputEmail1" class="form-label">Description</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="description">
+
+
+
+
+                  
+                  <label for="exampleInputEmail1" class="form-label">Skills Needed</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="skills">
+
+
+
+
+                  
+<br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+        <!-- Modal footer -->
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+   <center> <h1 style="padding-top: 50px;">All Blogs</h1></center>
+</div>
+
+
+
+
+
+<br>
+<br>
+
+
+<div class="container">
+
+    <table id="customers">
+
+        <tr>
+            <th>Organization</th>
+            <th>title</th>
+            <th>decription</th>
+            <th>time</th>
+            <th>date</th>
+            <th>venue</th>
+            <th>skills</th>
+            <th>actions</th>
+    
+        </tr>
+
+
+
+
+
+    {% for rows in rows1 %}
+    <tr>
+    <form method="GET" action="/delete">
+    <td>{{ rows[1] }}</td>
+    <td>{{ rows[3] }}</td>
+    <td>{{ rows[6] }}</td>
+    <td>{{ rows[4] }}</td>
+    <td>{{ rows[2] }}</td>
+    <td>{{ rows[5] }}</td>
+    <td>{{ rows[7] }}</td>
+    <td><button type="submit" class="btn btn-success" name="id" value="{{rows[0]}}">Delete</button></td>
+    </form> 
+
+</tr>
+<br>
+  {% endfor %}
+
+</table>    
+</div>
+
+
+<br>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+
+<!-- my update code in text file -->
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Hide this modal and show the first with the button below.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    
+</body>
+</html>

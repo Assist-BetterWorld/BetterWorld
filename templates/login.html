@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    * {
+  padding: 0;
+  margin: 0;
+  font-family: Open Sans;
+}
+
+body {
+    /* background-image: url('static/images/bg_2.jpg'); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('static/images/bg_2.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+h2, h3 {
+  letter-spacing: 1px;
+  line-height: 1.6em
+}
+
+p {
+  line-height: 1.2em;
+  margin: 10px 0;
+}
+
+.container {
+  position: relative;
+}
+
+button {
+  width: 100px;
+  padding: 7px 0;
+  margin-top: 10px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #ddd;
+  outline: none;
+  cursor: pointer;
+}
+
+.login-toggle {
+  width: 800px;
+  padding: 100px 60px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.8);
+  color: #ddd;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.toggle {
+  width: 250px;
+}
+
+.toggle:last-child {
+  text-align: right;
+}
+
+#slider {
+  position: absolute;
+  top: -8%;
+  left: 60px;
+  width: 350px;
+  height: 116%;
+  background: #fefefe;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 1px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 400ms cubic-bezier(.87,-.41,.19,1.44);
+}
+
+#slider.toggled {
+  transform: translateX(330px);
+}
+
+.login-signup {
+  width: 680px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: transform 400ms cubic-bezier(.87,-.41,.19,1.44);
+}
+
+#slider.toggled .login-signup {
+  transform: translateX(-330px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 40px;
+}
+
+form:last-child {
+  padding-left: 0;
+}
+
+form h2 {
+  margin-bottom: 20px;
+  color: #59a07d;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 7px 0;
+  border: none;
+  border-bottom: 1px solid #888;
+  outline: none;
+}
+
+form button {
+  margin-left: auto;
+  background: #59a07d;
+  color: hsl(150,10%,95%)
+}
+
+form div {
+  display: flex;
+  align-items: center;
+}
+
+form a {
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #ccc;
+}
+
+
+.button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+</style>
+
+</head>
+<body>
+
+  <a href="/" class="button">&#8592;</a>
+    <div class="container">
+        <div class="login-toggle">
+          <section class="toggle">
+            <h3>Login As User</h3>
+            <p>Login as user in order to join the events</p>
+            <button class="btn-toggle" type="button">Login-User</button>
+          </section>
+          <section class="toggle">
+            <h3>Login - Organization</h3>
+            <p>Login as organization in order to access the admin panel</p>
+            <button class="btn-toggle" type="button">Login-User</button>
+          </section>
+        </div>
+        <div id="slider">
+          <div class="login-signup">
+            <form id="signup-form" action="/user-login" method="post">
+              <h2>Login - User</h2>
+              <input type="email" placeholder="Email" name="email">
+              <input type="password" placeholder="Password" name="password">
+              <button type="submit">Login</button>
+            </form>
+            <form id="login-form"  action="/user-admin" method="post">
+              <h2>Login Organization</h2>
+              <input type="email" placeholder="Email" name="email">
+              <input type="password" placeholder="Password"  name="password">
+              <div>
+                <a href="#">Forgot password?</a>
+                <button type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+      <script>
+        let btnToggle = Array.from(document.getElementsByClassName('btn-toggle'));
+
+btnToggle.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('slider').classList.toggle('toggled');
+  });
+});
+      </script>
+</body>
+</html>
+
