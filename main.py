@@ -16,8 +16,8 @@ app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=587,
     MAIL_USE_TLS=True,
-    MAIL_USERNAME='assistbetterworld@gmail.com',
-    MAIL_PASSWORD='itlyavhtmkmcxdcm'
+    MAIL_USERNAME='<email>',
+    MAIL_PASSWORD='<password>'
 )
 mail = Mail(app)
 
