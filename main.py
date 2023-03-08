@@ -10,7 +10,7 @@ from flask_mail import Mail
 
 
 app = Flask(__name__)
-app.secret_key = 'ihyfhbhbfrfbiihrewuibwe5436889'
+app.secret_key = '<secret key>'
 
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
